@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <label>
+      Username:
+      <input type="text" id="username" required />
+    </label><br /><br />
+    <label>
+      Password:
+      <input type="password" id="password" required />
+    </label><br /><br />
+    <label>
+      Role:
+      <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+    </label><br /><br />
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    // Very basic front-end "check" for demo only
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+
+      // Demo credentials (never do this in real apps)
+      if (role === "admin" && username === "admin" && password === "admin123") {
+        // Redirect to admin page
+        window.location.href = "admin.html";
+      } else if (role === "user" && username === "user" && password === "user123") {
+        // Redirect to user page
+        window.location.href = "user.html";
+      } else {
+        alert("Invalid credentials or role.");
+      }
+    });
+  </script>
+</body>
+</html>
